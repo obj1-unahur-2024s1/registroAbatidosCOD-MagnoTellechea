@@ -1,3 +1,4 @@
+import dias.*
 object registroAbatidosCOD {
 	const  dias = [dia1,dia2,dia3]
 	const verificarSiSonPares ={abatidos => abatidos.cantidadDeAbatidos() % 2 == 0}
@@ -19,24 +20,8 @@ object registroAbatidosCOD {
 	method algunDiaAbatioMasDe(cantidad) = dias.any({abatidos => abatidos.cantidadDeAbatidos() > cantidad})
 	method todosLosDiasAbatioMasDe(cantidad) = dias.all({abatidos => abatidos.cantidadDeAbatidos() > cantidad})
 	method cantidadAbatidosMayorALaPrimera() = dias.filter(verificarSiAbatieronMasQueElPrimerDia).size()
-	
-	const verificarSiAbatieronMasQueElDiaAnterior = {abatidos => abatidos.cantidadDeAbatidos()  }
-	const listaAbatidosPorDia = {abatidos => abatidos.cantidadDeAbatidos()}
-	method esCrack() = 	dias.all(verificarSiAbatieronMasQueElDiaAnterior)
+	method esCrack() = 0
 	// debería indicar verdadero si todos los días de los que se tiene registro, el valor de abatidos fue aumentando.
 }
 
-object dia1{
-	method fecha() = 2022
-	method cantidadDeAbatidos() = 25
-}
 
-object dia2{
-	method fecha() = 2024
-	method cantidadDeAbatidos() = 32
-}
-
-object dia3{
-	method fecha() = 2020
-	method cantidadDeAbatidos() = 40
-}
