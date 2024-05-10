@@ -3,6 +3,7 @@ object registroAbatidosCOD {
 	const  dias = [dia1,dia2,dia3]
 	const verificarSiSonPares ={abatidos => abatidos.cantidadDeAbatidos() % 2 == 0}
 	const verificarSiAbatieronMasQueElPrimerDia = {abatidos => abatidos.cantidadDeAbatidos() > self.primerValorDeAbatidos()}
+	const verificarSiAbatieronMasQueElDiaAnterior = {abatidos => abatidos.cantidadDeAbatidos() <= self.elementoDeListaEnIndice(dias.size()-1).cantidadDeAbatidos()}
 	
 	method cantidadDeDiasRegistrados() = dias.size()
 	method estaVacioElRegistro() = dias.isEmpty()
@@ -20,8 +21,11 @@ object registroAbatidosCOD {
 	method algunDiaAbatioMasDe(cantidad) = dias.any({abatidos => abatidos.cantidadDeAbatidos() > cantidad})
 	method todosLosDiasAbatioMasDe(cantidad) = dias.all({abatidos => abatidos.cantidadDeAbatidos() > cantidad})
 	method cantidadAbatidosMayorALaPrimera() = dias.filter(verificarSiAbatieronMasQueElPrimerDia).size()
-	method esCrack() = 0
+	
+	method elementoDeListaEnIndice(indice) = dias.get(indice)
+	method esCrack() = dias.all(verificarSiAbatieronMasQueElDiaAnterior)
 	// debería indicar verdadero si todos los días de los que se tiene registro, el valor de abatidos fue aumentando.
+	
 }
 
 
